@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGI — Sistema de Gestão de Incidentes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== PÁGINA DE LOGIN ===== -->
+  <div id="page-login">
+    <div class="login-card">
+
+      <div class="login-logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2716/2716652.png" alt="Ícone SGI" />
+        <h1>SGI — Gestão de Incidentes</h1>
+        <p>Sistema de T.I. · Unifametro 2026</p>
+      </div>
+
+      <div class="form-group">
+        <label for="inp-user">Usuário</label>
+        <input type="text" id="inp-user" placeholder="seu.usuario" />
+      </div>
+
+      <div class="form-group">
+        <label for="inp-pass">Senha</label>
+        <input type="password" id="inp-pass" placeholder="••••••••" />
+      </div>
+
+      <button class="btn-login" onclick="entrar()">Entrar</button>
+
+      <div class="login-footer">SGI v1.0 · Unifametro · 2026</div>
+    </div>
+  </div>
+
+  <!-- ===== PÁGINA PRINCIPAL ===== -->
+  <div id="page-main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="topbar-logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2716/2716652.png" alt="SGI" />
+        <span>SGI <b>Incidentes</b></span>
+      </div>
+
+      <nav class="topbar-nav">
+        <a class="active">Início</a>
+        <a>Incidentes</a>
+        <a>Relatórios</a>
+      </nav>
+
+      <div class="topbar-right">
+        <div class="topbar-user">
+          <div class="avatar">AN</div>
+          <span>Analista N1</span>
+        </div>
+        <button class="btn-sair" onclick="sair()">Sair</button>
+      </div>
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="content">
+
+      <!-- Banner -->
+      <div class="hero">
+        <div class="hero-text">
+          <h2>Bem-vindo ao Sistema de Gestão de Incidentes</h2>
+          <p>Registre, monitore e resolva incidentes de T.I. de forma organizada. Acompanhe status, prioridades e prazos em um só lugar.</p>
+        </div>
+        <img
+          class="hero-img"
+          src="https://cdn-icons-png.flaticon.com/512/1086/1086741.png"
+          alt="Imagem de monitoramento de T.I."
+        />
+      </div>
+
+      <!-- Cards de resumo -->
+      <div class="stats">
+        <div class="stat red">
+          <div class="stat-num">07</div>
+          <div class="stat-label">Abertos</div>
+        </div>
+        <div class="stat amber">
+          <div class="stat-num">05</div>
+          <div class="stat-label">Em Andamento</div>
+        </div>
+        <div class="stat blue">
+          <div class="stat-num">38</div>
+          <div class="stat-label">Resolvidos (mês)</div>
+        </div>
+        <div class="stat green">
+          <div class="stat-num">91%</div>
+          <div class="stat-label">SLA Cumprido</div>
+        </div>
+      </div>
+
+      <!-- Tabela de incidentes recentes -->
+      <div class="table-header">
+        <div class="section-title">Incidentes Recentes</div>
+        <button class="btn-novo">+ Novo Incidente</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#ID</th>
+              <th>Título</th>
+              <th>Prioridade</th>
+              <th>Status</th>
+              <th>Data</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#INC-0042</td>
+              <td>Servidor de e-mail fora do ar</td>
+              <td><span class="badge b-critica">Crítica</span></td>
+              <td><span class="badge b-andamento">Em Andamento</span></td>
+              <td>08/03/2026</td>
+              <td><button class="btn-ver">Ver</button></td>
+            </tr>
+            <tr>
+              <td>#INC-0041</td>
+              <td>Lentidão no sistema ERP</td>
+              <td><span class="badge b-alta">Alta</span></td>
+              <td><span class="badge b-aberto">Aberto</span></td>
+              <td>08/03/2026</td>
+              <td><button class="btn-ver">Ver</button></td>
+            </tr>
+            <tr>
+              <td>#INC-0040</td>
+              <td>Impressora da sala 3 sem resposta</td>
+              <td><span class="badge b-baixa">Baixa</span></td>
+              <td><span class="badge b-resolvido">Resolvido</span></td>
+              <td>07/03/2026</td>
+              <td><button class="btn-ver">Ver</button></td>
+            </tr>
+            <tr>
+              <td>#INC-0039</td>
+              <td>Acesso VPN bloqueado</td>
+              <td><span class="badge b-media">Média</span></td>
+              <td><span class="badge b-resolvido">Resolvido</span></td>
+              <td>06/03/2026</td>
+              <td><button class="btn-ver">Ver</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /page-main -->
+
+  <script>
+    function entrar() {
+      document.getElementById('page-login').style.display = 'none';
+      document.getElementById('page-main').style.display  = 'block';
+    }
+
+    function sair() {
+      document.getElementById('page-main').style.display  = 'none';
+      document.getElementById('page-login').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
