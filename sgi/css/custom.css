@@ -1,0 +1,231 @@
+/* ============================================================
+   SGI — Custom Styles (Bootstrap 5 complement)
+   ============================================================ */
+
+:root {
+  --sgi-primary: #1e3a5f;
+  --sgi-accent:  #2563eb;
+  --sgi-bg:      #f1f5f9;
+}
+
+/* ── Global ─────────────────────────────────────────────── */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--sgi-bg);
+}
+
+/* ── Login / Cadastro background ────────────────────────── */
+.login-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--sgi-primary) 0%, var(--sgi-accent) 100%);
+}
+
+.login-logo img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Hidden by default — JS toggles display */
+.login-erro    { display: none; }
+.login-sucesso { display: none; }
+
+/* ── Navbar ─────────────────────────────────────────────── */
+.navbar-sgi {
+  background-color: var(--sgi-primary) !important;
+}
+
+.navbar-sgi .navbar-brand {
+  color: #fff !important;
+  font-size: .9rem;
+}
+
+.navbar-sgi .navbar-brand b {
+  color: #93c5fd;
+}
+
+.navbar-sgi .navbar-brand img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.navbar-sgi .nav-link {
+  color: rgba(255, 255, 255, .7) !important;
+  font-size: .875rem;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 5px 11px !important;
+  transition: background .15s, color .15s;
+}
+
+.navbar-sgi .nav-link:hover,
+.navbar-sgi .nav-link.active {
+  background: rgba(255, 255, 255, .1);
+  color: #fff !important;
+}
+
+.navbar-sgi .navbar-toggler {
+  border-color: rgba(255, 255, 255, .2);
+}
+
+.navbar-sgi .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255%2C255%2C255%2C0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Avatar */
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  background: var(--sgi-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* Sair button */
+.btn-sair {
+  border-color: rgba(255, 255, 255, .25);
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+}
+
+.btn-sair:hover {
+  background: rgba(255, 255, 255, .12);
+  border-color: rgba(255, 255, 255, .4);
+  color: #fff;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn-sgi {
+  background-color: var(--sgi-accent);
+  border-color: var(--sgi-accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-sgi:hover,
+.btn-sgi:focus {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #fff;
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero-sgi {
+  background: linear-gradient(135deg, var(--sgi-primary), var(--sgi-accent));
+  border-radius: 12px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-sgi::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .05);
+  pointer-events: none;
+}
+
+.hero-sgi .hero-sub {
+  color: #bfdbfe;
+  font-size: .875rem;
+  line-height: 1.6;
+}
+
+.hero-sgi img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  opacity: .9;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Stat Cards ───────────────────────────────────────────── */
+.stat-card {
+  border: none !important;
+  border-top: 3px solid #e2e8f0 !important;
+  border-radius: 10px;
+}
+
+.stat-card.stat-red   { border-top-color: #ef4444 !important; }
+.stat-card.stat-amber { border-top-color: #f59e0b !important; }
+.stat-card.stat-blue  { border-top-color: var(--sgi-accent) !important; }
+.stat-card.stat-green { border-top-color: #10b981 !important; }
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: .2rem;
+}
+
+.stat-card.stat-red   .stat-num { color: #ef4444; }
+.stat-card.stat-amber .stat-num { color: #f59e0b; }
+.stat-card.stat-blue  .stat-num { color: var(--sgi-accent); }
+.stat-card.stat-green .stat-num { color: #10b981; }
+
+.stat-label {
+  font-size: .75rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ── Table ────────────────────────────────────────────────── */
+.table-sgi thead th {
+  font-size: .7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #64748b;
+  background-color: #f8fafc;
+}
+
+/* ── Status / Priority Badges ─────────────────────────────── */
+.badge-sgi {
+  font-size: .7rem;
+  font-weight: 600;
+  padding: .25rem .6rem;
+  border-radius: 20px;
+}
+
+.badge-aberto    { background: #fee2e2; color: #dc2626; }
+.badge-andamento { background: #fef3c7; color: #d97706; }
+.badge-resolvido { background: #d1fae5; color: #059669; }
+
+.badge-critica { background: #fee2e2; color: #dc2626; }
+.badge-alta    { background: #fef3c7; color: #d97706; }
+.badge-media   { background: #dbeafe; color: #2563eb; }
+.badge-baixa   { background: #d1fae5; color: #059669; }
+
+/* ── Section title with left accent bar ──────────────────── */
+.section-title {
+  font-size: .95rem;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 18px;
+  background: var(--sgi-accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
