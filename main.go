@@ -20,13 +20,14 @@ func main() {
 
 	r := gin.Default()
 
-	r.Use(cors.New(cors.Config{
+	config := cors.Config{
 		AllowOrigins:     []string{"*"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Accept", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: false,
-	}))
+	}
+	r.Use(cors.New(config))
 
 	// Auth
 	r.POST("/login", handlers.Login)
