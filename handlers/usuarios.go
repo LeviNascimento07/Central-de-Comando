@@ -60,8 +60,8 @@ func CreateUsuario(c *gin.Context) {
 	u.AtualizadoEm = time.Now()
 
 	result, err := database.DB.Exec(
-		"INSERT INTO tbUsuarios (nome, login, senha, atualizado_em, atualizado_por) VALUES (?, ?, ?, ?, ?)",
-		u.Nome, u.Login, HashSenha(u.Senha), u.AtualizadoEm, u.AtualizadoPor,
+		"INSERT INTO tbUsuarios (nome, login, senha, atualizado_em, atualizado_por) VALUES (?, ?, SHA2(?, 256), ?, ?)",
+		u.Nome, u.Login, u.Senha, u.AtualizadoEm, u.AtualizadoPor,
 	)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -93,8 +93,8 @@ func UpdateUsuario(c *gin.Context) {
 	var execErr error
 	if u.Senha != "" {
 		_, execErr = database.DB.Exec(
-			"UPDATE tbUsuarios SET nome = ?, login = ?, senha = ?, atualizado_em = ?, atualizado_por = ? WHERE usuario_id = ?",
-			u.Nome, u.Login, HashSenha(u.Senha), u.AtualizadoEm, u.AtualizadoPor, id,
+			"UPDATE tbUsuarios SET nome = ?, login = ?, senha = SHA2(?, 256), atualizado_em = ?, atualizado_por = ? WHERE usuario_id = ?",
+			u.Nome, u.Login, u.Senha, u.AtualizadoEm, u.AtualizadoPor, id,
 		)
 	} else {
 		_, execErr = database.DB.Exec(
